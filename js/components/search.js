@@ -3,17 +3,20 @@
 const StationItems = (station,update) => {
   const divstation = $('<div class="statio"></div>');
   const h3 = $('<h3>'+station.name+'</h3>');
-  const span = $('<span>'+station.address+'</span>');
-  const a = $('<a></a>');
+  const p = $('<p>'+station.address+'</p>');
+  const distrito= $('<span>'+station.district+'</span>');
+  const a = $('<a class="linkMap"></a>');
   const map = $('<i class = "fa fa-map"></i>');
   a.append(map);
   divstation.append(h3);
-  divstation.append(span);
+  divstation.append(p);
+  divstation.append(distrito);
   divstation.append(a);
 
   a.on('click',(e)=>{
     e.preventDefault();
-    state.selectedStation = station;
+    
+    console.log(state.selectedStation);
     update();
   });
   return divstation;
@@ -32,7 +35,6 @@ const Station = (update) => {
   input.on('keyup',(e) => {
 
       const filtersDistricts = filterByDistrict(state.stations,input.val());
-
       reRender(list,filtersDistricts);
   });
 
@@ -41,7 +43,6 @@ const Station = (update) => {
 
 const reRender = (stationList,filtersDistricts)=>{
   stationList.empty();
-
   // state.stations.forEach(station, _ =>{reRender(stationList)});
   filtersDistricts.forEach((stations)=>{
     stationList.append(StationItems(stations, _ => {reRender(stationList,filtersDistricts)}));

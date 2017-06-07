@@ -12,7 +12,6 @@ const StationDetails = (update) => {
     listGas.append(eachProduct);
   });
 
-
   container.append(title);
   container.append(address);
   container.append(listGas);

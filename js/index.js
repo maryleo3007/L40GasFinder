@@ -11,9 +11,10 @@ const render = (root) => {
     }));
   }
   else {
-    wrapper.append(StationDetails(_ => {
-      render(root);
-    }));
+    const gmap = Gmap();
+    wrapper.append(gmap);
+    wrapper.append(StationDetails(_ => render(root)));
+    gmap.init();
   }
   root.append(wrapper);
 };
