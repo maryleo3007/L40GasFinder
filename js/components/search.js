@@ -15,7 +15,7 @@ const StationItems = (station,update) => {
 
   a.on('click',(e)=>{
     e.preventDefault();
-    
+    state.selectedStation = station;
     console.log(state.selectedStation);
     update();
   });
