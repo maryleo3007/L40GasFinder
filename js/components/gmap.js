@@ -5,11 +5,10 @@ const init = (divmap) =>{
     lat: state.selectedStation.lat,
     lng: state.selectedStation.long
   });
-
   map.addMarker({
     lat: state.selectedStation.lat,
     lng: state.selectedStation.long,
-    zoom: 13
+    zoom: 13,
     title: state.selectedStation.name,
   });
 }
@@ -17,6 +16,5 @@ const init = (divmap) =>{
 const Gmap = ()=>{
   const mapa = $("<div id='map'></div>");
   mapa.init = init.bind(null,mapa.get(0));
-
   return mapa;
 };
