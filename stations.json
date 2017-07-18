@@ -26,4 +26,32 @@
   "lat": -12.0956306,
   "long": -77.0321242,
   "products": [86,90,95,97]
+},{
+  "name": "Cálidda Gas Natural del Perú",
+  "address": "Ca. Morelli 150 Torre 2",
+  "district": "San Borja",
+  "lat": -12.089708652730005,
+  "lng": -77.00416768028131,
+  "products": [84,90,97]
+},{
+  "name": "Linde Gas Peru SA",
+  "address": "Av. Nestor Gambeta 280",
+  "district": "El Callao",
+  "lat": -12.048595865709768,
+  "lng": -77.12554762445475,
+  "products": [84,90,97,90]
+},{
+  "name": "Gasei Perú SAC",
+  "address": "Calle Mártir Olaya 129 - Of.1201",
+  "district": "Lima",
+  "lat": -12.060601300434568,
+  "lng": -77.03040121794349,
+  "products": [83,90,97,90]
+},{
+  "name": "Grifo Gaspetrol",
+  "address": "Brasil",
+  "district": "Pueblo Libre",
+  "lat": -12.075203712188902,
+  "lng": -77.05424308776855,
+  "products": [90,97,90]
 }]

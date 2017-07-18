@@ -7,13 +7,10 @@ const StationItems = (station,update) => {
   const distrito= $('<span>'+station.district+'</span>');
   const a = $('<a class="linkMap"></a>');
   const map = $('<i class = "fa fa-map"></i>');
+  divstation.append(h3,p,distrito,a);
   a.append(map);
-  divstation.append(h3);
-  divstation.append(p);
-  divstation.append(distrito);
-  divstation.append(a);
 
-  a.on('click',(e)=>{
+  a.click((e)=>{
     e.preventDefault();
     state.selectedStation = station;
     console.log(state.selectedStation);
@@ -24,27 +21,24 @@ const StationItems = (station,update) => {
 
 const Station = (update) => {
   const parent = $("<div class='white-card'></div>");
-  const input = $("<input id='input-item' type='text' placeholder='District'>");
+  const div = $('<div class="inner-addon left-addon"><i class="fa fa-search"></i></div>');
+  const input = $('<input id="input-item" type="text" class="form-control" placeholder="Ingresa tu distrito a buscar"/>');
   const hr = $("<hr>");
   const list = $("<div class='list'></div>");
-
-  parent.append(input);
-  parent.append(hr);
-  parent.append(list);
-
+  parent.append(div,hr,list);
+  div.append(input);
+  reRender(list,state.stations,update);
   input.on('keyup',(e) => {
-
       const filtersDistricts = filterByDistrict(state.stations,input.val());
-      reRender(list,filtersDistricts);
+      reRender(list,filtersDistricts,update);
   });
-
   return parent;
 }
 
-const reRender = (stationList,filtersDistricts)=>{
+const reRender = (stationList,filtersDistricts,update)=>{
   stationList.empty();
   // state.stations.forEach(station, _ =>{reRender(stationList)});
   filtersDistricts.forEach((stations)=>{
-    stationList.append(StationItems(stations, _ => {reRender(stationList,filtersDistricts)}));
+    stationList.append(StationItems(stations, update));
   });
 }

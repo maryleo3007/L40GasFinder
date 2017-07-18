@@ -2,9 +2,9 @@
 const StationDetails = (update) => {
   const container = $('<div class="stationDetails"></div>');
   const title = $('<h2>'+state.selectedStation.name+'</h2>');
-  const address = $('<h2>'+state.selectedStation.address+'</h2>');
+  const hr = $("<hr>");
+  const address = $('<h3>'+state.selectedStation.address+'</h3>');
   const listGas= $('<div class="listGas"></div>');
-
   const products = state.selectedStation.products;
 
   products.forEach((product) =>{
@@ -12,9 +12,7 @@ const StationDetails = (update) => {
     listGas.append(eachProduct);
   });
 
-  container.append(title);
-  container.append(address);
-  container.append(listGas);
+  container.append(title,hr,address,listGas);
 
   return container;
 }
